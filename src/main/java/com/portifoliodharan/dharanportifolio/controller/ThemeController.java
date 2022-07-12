@@ -28,9 +28,14 @@ public class ThemeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<ThemeModel>> getByName(@PathVariable String nome){
-        return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
+    @GetMapping("/name/{descricao}")
+    public ResponseEntity<List<ThemeModel>> getByDescircao(@PathVariable String descricao){
+        return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
+    }
+
+    @GetMapping("/name/{linguagem}")
+    public ResponseEntity<List<ThemeModel>> getByLinguagem(@PathVariable String linguagem){
+        return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(linguagem));
     }
 
     @PostMapping

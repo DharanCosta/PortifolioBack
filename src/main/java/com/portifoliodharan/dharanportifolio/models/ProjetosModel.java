@@ -35,6 +35,10 @@ public class ProjetosModel {
 //    @JsonFormat(pattern = "dd/MM/yyyy")
 //    private LocalDate data;
 
+    @Column(name="linkRepo")
+    @Size(min=0, max=1000)
+    private String link;
+
     @ManyToOne
 //    @Column(name = "id_user")
     @JsonIgnoreProperties("projetos")
@@ -47,15 +51,14 @@ public class ProjetosModel {
 
     public ProjetosModel(){}
 
-    public ProjetosModel(long id, String name, String description, UserModel user, ThemeModel themeModel) {
+    public ProjetosModel(long id, String name, String description, String link, UserModel user, ThemeModel themeModel) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.link= link;
         this.user = user;
         this.themeModel = themeModel;
     }
-
-
 
     public long getId() {
         return id;
@@ -80,6 +83,10 @@ public class ProjetosModel {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getLink() { return link; }
+
+    public void setLink(String link) { this.link = link; }
 
     //    public LocalDate getData() {
 //        return data;
