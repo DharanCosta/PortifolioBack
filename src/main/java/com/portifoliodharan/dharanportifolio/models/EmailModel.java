@@ -16,7 +16,8 @@ public class EmailModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long emailId;
-    private String ownerRef;
+    private String ownerMail;
+    private String ownerName;
     private final String emailFrom = "dharis.contato@gmail.com";
     private String emailTo = "dharancosta@gmail.com";
     private String subject;

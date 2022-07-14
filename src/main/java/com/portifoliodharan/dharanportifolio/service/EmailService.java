@@ -26,8 +26,9 @@ public class EmailService {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(emailModel.getEmailFrom());
             message.setTo(emailModel.getEmailTo());
-            message.setSubject(emailModel.getSubject()+" "+emailModel.getOwnerRef());
-            message.setText(emailModel.getText());
+            message.setSubject(emailModel.getSubject()+" "+emailModel.getOwnerMail());
+            message.setText("Mensagem de: "+emailModel.getOwnerName()
+                    +" "+emailModel.getText());
             emailSender.send(message);
 
             emailModel.setStatusEmail(StatusEmail.SENT);
