@@ -26,6 +26,9 @@ public class ThemeModel {
     @JsonIgnoreProperties("themeModel")
     private List<ProjetosModel> projetosModels;
 
+    public ThemeModel() {
+    }
+
     public long getId() {
         return id;
     }

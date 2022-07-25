@@ -40,24 +40,23 @@ public class ProjetosModel {
     private String link;
 
     @ManyToOne
+    @JoinColumn(name="id_usuario")
 //    @Column(name = "id_user")
     @JsonIgnoreProperties("projetos")
     private UserModel user;
 
     @ManyToOne
-//    @Column(name = "id_tema")
+    @JoinColumn(name="id_projeto")
     @JsonIgnoreProperties("projetosModels")
     private ThemeModel themeModel;
 
     public ProjetosModel(){}
 
-    public ProjetosModel(long id, String name, String description, String link, UserModel user, ThemeModel themeModel) {
+    public ProjetosModel(long id, String name, String description, String link) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.link= link;
-        this.user = user;
-        this.themeModel = themeModel;
     }
 
     public long getId() {

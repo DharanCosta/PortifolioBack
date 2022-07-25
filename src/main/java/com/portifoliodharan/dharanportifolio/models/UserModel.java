@@ -31,16 +31,13 @@ public class UserModel {
     @OneToMany(mappedBy="user", cascade=CascadeType.REMOVE)
     @JsonIgnoreProperties("user")
     private List<ProjetosModel> projetos;
-
-    public UserModel(long id, String name, String user, String password, List<ProjetosModel> projetos) {
+    public UserModel(){
+    }
+    public UserModel(long id, String name, String user, String password) {
         this.id = id;
         this.name = name;
         this.user = user;
         this.password = password;
-        this.projetos = projetos;
-    }
-
-    public UserModel(){
     }
 
     public long getId() {
